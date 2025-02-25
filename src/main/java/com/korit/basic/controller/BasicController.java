@@ -4,7 +4,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -60,5 +62,29 @@ public class BasicController {
     public String putMethod(){
         return "PUT Method";
     }
+
+    // @PatchMapping : RequestMapping을 Patch에 한정시킨 어노테이션
+    // PATCH method - 클라이언트가 서버의 일부 데이터를 수정하기 위한 메소드
+    // Request Body O / Response Body O / HTML form X
+    @PatchMapping("")
+    public String patchMethod(){
+        return "PATCH method";
+    }
+
+    // @DeleteMapping : RequestMapping을 Delete에 한정시킨 어노테이션
+    // DELETE method - 클라이언트가 서버에 데이터를 삭제하기 위한 메소드
+    // Request Body X / Reponse Body X / HTML form X
+    @DeleteMapping("")
+    public String deleteMethod(){
+        return "DELETE method";
+    }
+
+    // ! 주의 HTTP Method + URL 패턴이 중복되면 런타임 에러가 발생
+    // @GetMapping("/duplicate")
+    // public void duplicate1() {}
+
+    // @GetMapping("/duplicate")
+    // public void duplicate2() {}
+
 
 }
