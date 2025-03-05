@@ -1,0 +1,47 @@
+user CRUD -> /user/**
+
+Create :
+사용자로부터 아이디, 비밀번호, 이름, 주소, 전화번호를 입력 받음
+아이디는 필수, 길이 20자 이하 영문 대소문자숫자
+비밀번호는 필수, 길이가 8자 이상 대문자+소문자+숫자+특수문자 조합
+이름은 필수 4자 이하
+주소는 필수
+전화번호 필수, 010-????-???? 에 해당하는 패턴
+
+성공
+{
+  "code": "SU",
+  "message": "Success." 
+}
+
+실패
+유효성 검사 실패
+{
+  "code": "VF",
+  "message": "Validation Failed."
+}
+아이디 중복
+{
+  "code": "DI",
+  "message": "Duplicated Id."
+}
+전화번호 중복
+{
+  "code": "DT",
+  "message": "Duplicated Tel number."
+}
+데이터베이스 에러
+{
+  "code": "DBE",
+  "message": "Database Error."
+}
+
+READ :
+- 특정 아이디에 해당하는 사용자의 정보를 불러오기
+사용자로부터 아이디를 입력 받음
+
+성공
+{
+    "code": "SU",
+    "message
+}
