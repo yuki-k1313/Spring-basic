@@ -38,10 +38,54 @@ Create :
 
 READ :
 - 특정 아이디에 해당하는 사용자의 정보를 불러오기
+GET http://127.0.0.1:8080/user/{userId}
 사용자로부터 아이디를 입력 받음
 
 성공
 {
-    "code": "SU",
-    "message
+  "code": "SU",
+  "message": "Success.",
+  "userId": "qwer1234",
+  "userName": "홍길동",
+  "userAddress": "부산광역시 부산진구"
+}
+
+실패
+아이디 미입력
+{
+  "code": "VF",
+  "message": "Validation Failed."
+}
+존재하지 않는 유저
+{
+  "code": "NU",
+  "message": "No Exist User."
+}
+데이터베이스 에러
+{
+  "code": "DBE",
+  "message": "Database Error."
+}
+
+DELETE
+DELETE http://127.0.0.1:8080/user/{userId}
+사용자로부터 아이디를 입력 받음
+입력 받은 아이디에 해당하는 유저 레코드 삭제
+
+성공
+{
+  "code": "SU",
+  "message": "Success." 
+}
+
+실패
+존재하지 않는 유저
+{
+  "code": "NU",
+  "message": "No Exist User."
+}
+데이터베이스 에러
+{
+  "code": "DBE",
+  "message": "Database Error."
 }
