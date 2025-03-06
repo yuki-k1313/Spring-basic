@@ -20,6 +20,8 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
     // SELECT * FROM user WHERE user_tel_number = ?;
     UserEntity findByUserTelNumber(String userTelNumber);
 
+    List<UserEntity> findByOrderByUserIdAsc();
+
     boolean existsByUserId(String userId);
     boolean existsByUserTelNumber(String userTelNumber);
 

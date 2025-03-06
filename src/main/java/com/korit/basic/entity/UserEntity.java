@@ -1,5 +1,6 @@
 package com.korit.basic.entity;
 
+import com.korit.basic.dto.PatchUserRequestDto;
 import com.korit.basic.dto.PostUserRequestDto;
 
 import jakarta.persistence.Entity;
@@ -38,4 +39,8 @@ public class UserEntity {
         this.userTelNumber = dto.getUserTelNumber();
     }
     
+    public void patch(PatchUserRequestDto dto) {
+        this.userName = dto.getUserName();
+        this.userAddress = dto.getUserAddress();
+    }
 }
