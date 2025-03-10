@@ -2,6 +2,7 @@ package com.korit.basic.entity;
 
 import com.korit.basic.dto.PatchUserRequestDto;
 import com.korit.basic.dto.PostUserRequestDto;
+import com.korit.basic.dto.SignUpRequestDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,16 +15,14 @@ import lombok.Setter;
 
 // entity 클래스, entity 명은 user
 // practice_sql 데이터베이스의 user 테이블과 매핑
-
-@Entity(name = "user")
-@Table(name = "user")
+@Entity(name="user")
+@Table(name="user")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class UserEntity {
-    
     @Id
     private String userId;
     private String userPassword;
@@ -38,7 +37,15 @@ public class UserEntity {
         this.userAddress = dto.getUserAddress();
         this.userTelNumber = dto.getUserTelNumber();
     }
-    
+
+    public UserEntity(SignUpRequestDto dto) {
+        this.userId = dto.getUserId();
+        this.userPassword = dto.getUserPassword();
+        this.userName = dto.getUserName();
+        this.userAddress = dto.getUserAddress();
+        this.userTelNumber = dto.getUserTelNumber();
+    }
+
     public void patch(PatchUserRequestDto dto) {
         this.userName = dto.getUserName();
         this.userAddress = dto.getUserAddress();
